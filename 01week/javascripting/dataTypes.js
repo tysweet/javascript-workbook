@@ -1,5 +1,11 @@
 'use strict';
 console.log('here');
+//Write a JavaScript program that adds 2 numbers together.
+function sumOfTwoNumbers(num1, mum2) {
+    return num1 + mum2
+}
+
+sumOfTwoNumbers(3,2);
 
 
 // Write a JavaScript program that runs only when 2 things are true.
