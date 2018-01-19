@@ -2,7 +2,7 @@
 console.log('here');
 //Write a JavaScript program that adds 2 numbers together.
 const sumOfTwoNumbers=(num1, mum2)=>{
-    return num1 + mum2
+  return num1 + mum2
 }
 
 sumOfTwoNumbers(3,2);
@@ -14,11 +14,11 @@ sumOfTwoNumbers(3,2);
 // methods: function, 2 arguments, if/ then statement
 
 function evaluatesToTrue(arg1, arg2) {
-    if(arg1 && arg2){
-        return 'both are true'
-    }else{
-        return 'nope'
-    }
+  if(arg1 && arg2){
+    return 'both are true'
+  }else{
+    return 'nope'
+  }
 }
 
 evaluatesToTrue(4, 6);
