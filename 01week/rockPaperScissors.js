@@ -7,11 +7,15 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-
+//Main Rock/Paper/Scissore function
 function rockPaperScissors(hand1, hand2) {
-
-  // Write code here
-
+  if (hand1===hand2){
+    return 'It is a Tie';
+  } else if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'rock')) {
+    return 'Player 1 Wins!'
+  } else {
+    return 'Player 2 Wins!'
+  }
 }
 
 function getPrompt() {
