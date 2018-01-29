@@ -1,5 +1,6 @@
 'use strict';
 
+const validHandInput = ['rock', 'paper', 'scissors'];
 const assert = require('assert');
 const readline = require('readline');
 const rl = readline.createInterface({
@@ -36,7 +37,7 @@ function getPrompt() {
 
 if (typeof describe === 'function') {
 
-  describe('#rockPaperScissors()', () => {
+  describe('rockPaperScissors()', () => {
     it('should detect a tie', () => {
       assert.equal(rockPaperScissors('rock', 'rock'), "It's a tie!");
       assert.equal(rockPaperScissors('paper', 'paper'), "It's a tie!");
