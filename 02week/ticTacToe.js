@@ -6,13 +6,16 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' ']
 ];
 
+
 let playerTurn = 'X';
+
 
 function printBoard() {
   console.log('   0  1  2');
@@ -24,7 +27,7 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  // Your code here
+
 }
 
 function verticalWin() {
@@ -32,7 +35,15 @@ function verticalWin() {
 }
 
 function diagonalWin() {
-  // Your code here
+  if ((board.forEach('X', [0, 0])) && (board.forEach('X', [1, 1])) &&
+  (board.forEach('X', [2, 2])) || (board.forEach('X', [0, 2])) &&
+  (board.forEach('X', [1, 1])) && (board.forEach('X', [2, 0]))) {
+    return 'Player X Wins!';
+  } else if ((board.forEach('O', [0, 0])) && (board.forEach('O', [1, 1])) &&
+  (board.forEach('O', [2, 2])) || (board.forEach('O', [0, 2])) &&
+  (board.forEach('O', [1, 1])) && (board.forEach('O', [2, 0]))) {
+    return 'Player O Wins!'
+  }
 }
 
 function checkForWin() {
@@ -49,13 +60,11 @@ function getPrompt() {
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
+      if (row === 0 && column === 2) {
+        board[0].splice(2, 1, playerTurn);
+      };
       getPrompt();
-    });
   });
-
-}
-
-
 
 // Tests
 
@@ -87,7 +96,5 @@ if (typeof describe === 'function') {
     });
   });
 } else {
-
   getPrompt();
-
-}
+};
