@@ -9,14 +9,21 @@ const rl = readline.createInterface({
 
 //Main Rock/Paper/Scissore function
 function rockPaperScissors(hand1, hand2) {
-  if (hand1===hand2){
-    return 'It is a Tie';
-  } else if ((hand1 === 'rock' && hand2 === 'scissors') || (hand1 === 'scissors' && hand2 === 'paper') || (hand1 === 'paper' && hand2 === 'rock')) {
-    return 'Player 1 Wins!'
+  if (hand1.toLowerCase().trim() === hand2.toLowerCase().trim()) {
+    return 'It\'s a tie!';
+  } else if ((hand1.toLowerCase().trim() === 'rock' && hand2.toLowerCase().trim() === 'scissors') ||
+  (hand1.toLowerCase().trim() === 'scissors' && hand2.toLowerCase().trim() === 'paper') ||
+  (hand1.toLowerCase().trim() === 'paper' && hand2.toLowerCase().trim() === 'rock')) {
+    return 'Hand one wins!'
+  } else if ((hand2.toLowerCase().trim() === 'rock' && hand1.toLowerCase().trim() === 'scissors') ||
+  (hand2.toLowerCase().trim() === 'scissors' && hand1.toLowerCase().trim() === 'paper') ||
+  (hand2.toLowerCase().trim() === 'paper' && hand1.toLowerCase().trim() === 'rock')) {
+    return 'Hand two wins!'
   } else {
-    return 'Player 2 Wins!'
+    return 'Invalid Entry - Please Enter rock, paper, or scissors'
   }
 }
+
 
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
