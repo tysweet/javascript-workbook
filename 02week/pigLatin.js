@@ -43,26 +43,37 @@ function pigLatin(word) {
   // } else {
   //   return 'nope';
   // }
-  if (word.indexOf('a') > -1 && word.indexOf('a') > 0) {
+  if (word.indexOf('a') === 0 ||
+      word.indexOf('e') === 0 ||
+      word.indexOf('i') === 0 ||
+      word.indexOf('o') === 0 ||
+      word.indexOf('u') === 0) {
+    return word + 'yay';
+  } else if (word.indexOf('a') > -1 && word.indexOf('a') > 0) {
     vowIndex = word.indexOf('a');
-  } else if (word.indexOf('e') > -1 && word.indexOf('e') < vowIndex) {
+  }
+  if (word.indexOf('e') > -1 && word.indexOf('e') < vowIndex) {
     vowIndex = word.indexOf('e');
-  } else if (word.indexOf('i') > -1 && word.indexOf('i') < vowIndex) {
+  }
+  if (word.indexOf('i') > -1 && word.indexOf('i') < vowIndex) {
     vowIndex = word.indexOf('i');
-  } else if (word.indexOf('o') > -1 && word.indexOf('o') < vowIndex) {
+  }
+  if (word.indexOf('o') > -1 && word.indexOf('o') < vowIndex) {
     vowIndex = word.indexOf('o');
-  } else if (word.indexOf('u') > -1 && word.indexOf('u') < vowIndex) {
+  }
+  if (word.indexOf('u') > -1 && word.indexOf('u') < vowIndex) {
     vowIndex = word.indexOf('u');
   } else {
     return 'Input Valid Entry';
   }
 
+
   let firstPartOfWord = ''
   let secondPartOfWord = ''
-  if (vowIndex > -1) {
-    firstPartOfWord = word.substring(vowIndex - 1);
-    secondPartOfWord = word.substring(vowindex);
-    return secondPartOfWord + firstPartOfWord + 'ay';
+  if (vowIndex > 0) {
+    firstPartOfWord = word.slice(vowIndex);
+    secondPartOfWord = word.substring(0, (vowIndex));
+    return firstPartOfWord + secondPartOfWord + 'ay';
   }
 }
 
