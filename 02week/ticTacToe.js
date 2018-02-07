@@ -27,7 +27,25 @@ function printBoard() {
 }
 
 function horizontalWin() {
-
+  if ((board[0].forEach((0))) && (board[0].forEach((1))) &&
+  (board[0].forEach((2))) === 'X') {
+    return 'Player X Wins!';
+  // } else if ((board.forEach('X', [1][0])) &&
+  // (board.forEach('X', [1][1])) && (board.forEach('X', [1][2]))) {
+  //   return 'Player X Wins!';
+  // } else if ((board.forEach('X', [2][0])) && (board.forEach('X', [2][1])) &&
+  // (board.forEach('X', [2][2]))) {
+  //   return 'Player X Wins!';
+  // } else if ((board.forEach('O', [0][0])) && (board.forEach('O', [0][1])) &&
+  // (board.forEach('O', [0][2]))) {
+  //   return 'Player O Wins!'
+  // } else if ((board.forEach('O', [1][0])) &&
+  // (board.forEach('O', [1][1])) && (board.forEach('O', [1][2]))) {
+  //   return 'Player O Wins!'
+  // } else if ((board.forEach('O', [1][0])) && (board.forEach('O', [1][1])) &&
+  // (board.forEach('O', [1][2]))) {
+  //   return 'Player O Wins!'
+  }
 }
 
 function verticalWin() {
@@ -47,16 +65,16 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-
+  horizontalWin();
 }
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
   //ternary operator
   if (playerTurn === 'X') {
-    playerTurn = 'O';
+    (playerTurn = 'O');
   } else {
-    playerTurn = 'X';
+    (playerTurn = 'X');
   }
   checkForWin();
 }
