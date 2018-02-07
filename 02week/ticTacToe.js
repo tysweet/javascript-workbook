@@ -35,23 +35,30 @@ function verticalWin() {
 }
 
 function diagonalWin() {
-  if ((board.forEach('X', [0, 0])) && (board.forEach('X', [1, 1])) &&
-  (board.forEach('X', [2, 2])) || (board.forEach('X', [0, 2])) &&
-  (board.forEach('X', [1, 1])) && (board.forEach('X', [2, 0]))) {
-    return 'Player X Wins!';
-  } else if ((board.forEach('O', [0, 0])) && (board.forEach('O', [1, 1])) &&
-  (board.forEach('O', [2, 2])) || (board.forEach('O', [0, 2])) &&
-  (board.forEach('O', [1, 1])) && (board.forEach('O', [2, 0]))) {
-    return 'Player O Wins!'
-  }
+  // if ((board.forEach('X', [0, 0])) && (board.forEach('X', [1, 1])) &&
+  // (board.forEach('X', [2, 2])) || (board.forEach('X', [0, 2])) &&
+  // (board.forEach('X', [1, 1])) && (board.forEach('X', [2, 0]))) {
+  //   return 'Player X Wins!';
+  // } else if ((board.forEach('O', [0, 0])) && (board.forEach('O', [1, 1])) &&
+  // (board.forEach('O', [2, 2])) || (board.forEach('O', [0, 2])) &&
+  // (board.forEach('O', [1, 1])) && (board.forEach('O', [2, 0]))) {
+  //   return 'Player O Wins!'
+  // }
 }
 
 function checkForWin() {
-  // Your code here
+
 }
 
 function ticTacToe(row, column) {
-  // Your code here
+  board[row][column] = playerTurn;
+  //ternary operator
+  if (playerTurn === 'X') {
+    playerTurn = 'O';
+  } else {
+    playerTurn = 'X';
+  }
+  checkForWin();
 }
 
 function getPrompt() {
@@ -60,11 +67,10 @@ function getPrompt() {
   rl.question('row: ', (row) => {
     rl.question('column: ', (column) => {
       ticTacToe(row, column);
-      if (row === 0 && column === 2) {
-        board[0].splice(2, 1, playerTurn);
-      };
       getPrompt();
-  });
+    });
+  })
+}
 
 // Tests
 
