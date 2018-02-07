@@ -7,6 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//is let, probably needs to be reassigned at each turn - object with arrays
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
@@ -20,23 +21,23 @@ function printStacks() {
 }
 
 function movePiece() {
-  // Your code here
-
+  //move numbers to other stacks
+  //Object.keys(?).pop(?).push(?).shift(?)
 }
 
 function isLegal() {
-  // Your code here
-
+  //is this a legal move
+  //true/false?;
 }
 
 function checkForWin() {
-  // Your code here
-
+  //checking for win
+  //true/false?
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
+  //startStack is beginning stack moving from, endStack is ending location
+  //assign a, b, c moves
 }
 
 function getPrompt() {
@@ -50,6 +51,8 @@ function getPrompt() {
 }
 
 // Tests
+
+//tests for valid inputs
 
 if (typeof describe === 'function') {
 
