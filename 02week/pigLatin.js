@@ -8,41 +8,62 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin(input) {
   let vowIndex = -1;
-  if (word.indexOf('a') === 0 ||
-      word.indexOf('e') === 0 ||
-      word.indexOf('i') === 0 ||
-      word.indexOf('o') === 0 ||
-      word.indexOf('u') === 0) {
-    return word + 'yay';
-  }
-  if (word.indexOf('a') > 0 || word.indexOf('a') < vowIndex) {
-    vowIndex = word.indexOf('a');
-    console.log(vowIndex);
-  } else if (word.indexOf('e') > 0 || word.indexOf('e') < vowIndex) {
-    vowIndex = word.indexOf('e');
-    console.log(vowIndex);
-  } else if (word.indexOf('i') > 0 || word.indexOf('i') < vowIndex) {
-    vowIndex = word.indexOf('i');
-    console.log(vowIndex);
-  } else if (word.indexOf('o') > 0 || word.indexOf('o') < vowIndex) {
-    vowIndex = word.indexOf('o');
-    console.log(vowIndex);
-  } else if (word.indexOf('u') > 0 || word.indexOf('u') < vowIndex) {
-    vowIndex = word.indexOf('u');
-    console.log(vowIndex);
+  const word = input.split('');
+
+  if (input.indexOf('a') === 0 ||
+      input.indexOf('e') === 0 ||
+      input.indexOf('i') === 0 ||
+      input.indexOf('o') === 0 ||
+      input.indexOf('u') === 0) {
+    return input + 'yay';
   } else {
-    return 'Input Valid Entry';
+    console.log(`line 22 ${word}`);
+    const arrVowels = ['a', 'e', 'i', 'o', 'u'];
+
+    arrVowels.forEach((vowel) => {
+      if(word.includes(vowel)){
+        vowIndex = word.indexOf(vowel);
+        console.log('line 27 ', vowIndex);
+      } else {
+        console.log(`no ${vowel} in the word`);
+      }
+    });
+
   }
 
-  let firstPartOfWord = ''
-  let secondPartOfWord = ''
-  if (vowIndex > 0) {
-    firstPartOfWord = word.slice(vowIndex);
-    secondPartOfWord = word.substring(0, (vowIndex));
-    return firstPartOfWord + secondPartOfWord + 'ay';
-  }
+
+  // if (word.indexOf('a') > -1) {
+  //   vowIndex = word.indexOf('a');
+  //   return console.log("line 22" + vowIndex);
+  // }
+  // if (word.indexOf('e') > -1 || word.indexOf('e') < vowIndex) {
+  //   vowIndex = word.indexOf('e');
+  //   console.log("line 26" + vowIndex);
+  // }
+  // if (word.indexOf('i') > -1 || word.indexOf('i') < vowIndex) {
+  //   vowIndex = word.indexOf('i');
+  //   console.log("line 30" + vowIndex);
+  // }
+  // if (word.indexOf('o') > -1 || word.indexOf('o') < vowIndex) {
+  //   vowIndex = word.indexOf('o');
+  //   console.log("line 34" + vowIndex);
+  // }
+  // if (word.indexOf('u') > -1 || word.indexOf('u') < vowIndex) {
+  //   vowIndex = word.indexOf('u');
+  //   console.log("line 39" +  vowIndex);
+  // } else {
+  //   return 'Input invalid Entry line 40';
+  // }
+
+  // let firstPartOfWord = ''
+  // let secondPartOfWord = ''
+  // if (vowIndex > 0) {
+  //   firstPartOfWord = word.slice(vowIndex);
+  //   secondPartOfWord = word.substring(0, (vowIndex));
+  //   return firstPartOfWord + secondPartOfWord + 'ay';
+  // }
 }
 
 
