@@ -13,7 +13,6 @@ let board = [
   [' ', ' ', ' ']
 ];
 
-
 let playerTurn = 'X';
 
 
@@ -27,26 +26,30 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  if ((board[0].forEach((0))) && (board[0].forEach((1))) &&
-  (board[0].forEach((2))) === 'X') {
-    return 'Player X Wins!';
-  // } else if ((board.forEach('X', [1][0])) &&
-  // (board.forEach('X', [1][1])) && (board.forEach('X', [1][2]))) {
-  //   return 'Player X Wins!';
-  // } else if ((board.forEach('X', [2][0])) && (board.forEach('X', [2][1])) &&
-  // (board.forEach('X', [2][2]))) {
-  //   return 'Player X Wins!';
-  // } else if ((board.forEach('O', [0][0])) && (board.forEach('O', [0][1])) &&
-  // (board.forEach('O', [0][2]))) {
-  //   return 'Player O Wins!'
-  // } else if ((board.forEach('O', [1][0])) &&
-  // (board.forEach('O', [1][1])) && (board.forEach('O', [1][2]))) {
-  //   return 'Player O Wins!'
-  // } else if ((board.forEach('O', [1][0])) && (board.forEach('O', [1][1])) &&
-  // (board.forEach('O', [1][2]))) {
-  //   return 'Player O Wins!'
-  }
+  board.forEach((board) => {
+    if ((board === board[0][0]) && (board === board[0][1]) && (board === board[0][2])) {
+      console.log('Player X Wins!');
+    }
+    console.log(board);
+  })
+
+// } else if ((board.forEach('X', [1][0])) &&
+// (board.forEach('X', [1][1])) && (board.forEach('X', [1][2]))) {
+//   return 'Player X Wins!';
+// } else if ((board.forEach('X', [2][0])) && (board.forEach('X', [2][1])) &&
+// (board.forEach('X', [2][2]))) {
+//   return 'Player X Wins!';
+// } else if ((board.forEach('O', [0][0])) && (board.forEach('O', [0][1])) &&
+// (board.forEach('O', [0][2]))) {
+//   return 'Player O Wins!'
+// } else if ((board.forEach('O', [1][0])) &&
+// (board.forEach('O', [1][1])) && (board.forEach('O', [1][2]))) {
+//   return 'Player O Wins!'
+// } else if ((board.forEach('O', [1][0])) && (board.forEach('O', [1][1])) &&
+// (board.forEach('O', [1][2]))) {
+//   return 'Player O Wins!'
 }
+
 
 function verticalWin() {
   // Your code here
