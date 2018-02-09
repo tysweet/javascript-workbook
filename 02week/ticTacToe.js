@@ -6,11 +6,11 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
+//multi-dimensional array
 let board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
 ];
 
 let playerTurn = 'X';
@@ -26,11 +26,16 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  board.forEach((board) => {
-    if ((board === board[0][0]) && (board === board[0][1]) && (board === board[0][2])) {
-      console.log('Player X Wins!');
-    }
-    console.log(board);
+  board.forEach((outerArray) => {
+    console.log(board[board.indexOf(outerArray)].forEach((innerArray)=>{
+      console.log(board[board.indexOf(innerArray)])
+    }))
+
+    // if ((board[0][board.indexOf(playerMove)]) && (board[1][board.indexOf(playerMove)]) && (board[2][board.indexOf(playerMove)])) {
+    //   console.log('Player X Wins!');
+
+    // }
+    //console.log(board);
   })
 
 // } else if ((board.forEach('X', [1][0])) &&
