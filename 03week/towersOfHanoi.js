@@ -27,39 +27,36 @@ function movePiece() {
 }
 
 
-function isLegal(num) {
+function isLegal() {
   //is this a legal move
   //true/false?;
-  if ((stacks.a[num] > stacks.b[num]) || (stacks.b[num] > stacks.c[num]) ||
-  (stacks.c[num] > stacks.b[num]) || (stacks.c[num] > stacks.a[num]) ||
-  (stacks.b[num] > stacks.a[num])) {
-    return 'Invalid Move - Cannot Put Larger Number on Smaller Number'
-  }
+
 }
 
 function checkForWin() {
   //checking for win
-  //true/false?
-  if (stacks.b === [4, 3, 2, 1] || stacks.c === [4, 3, 2, 1]) {
-    return 'You Win!'
+  if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
+    console.log('You Win!');
   }
 }
 
 function towersOfHanoi(startStack, endStack) {
   //startStack is beginning stack moving from, endStack is ending location
   //assign a, b, c moves
-  const movePieceFromA = stacks.a.pop([]);
-  const movePieceFromB = stacks.b.pop([]);
-  const movePieceFromC = stacks.c.pop([]);
   if (startStack === 'a' && endStack === 'b') {
-    movePieceFromA;
-    stacks.b.splice(-1, 1, movePieceFromA);
-    console.log(stacks.b);
-    // if (endStack === 'b') {
-    //   stacks.b.push(movePieceFromA);
-    // } else if (endStack === 'c'){
-    //   stacks.c.push(movePieceFromA);
-    // }
+    stacks.b.push(stacks.a.pop());
+  } else if (startStack === 'a' && endStack === 'c') {
+    stacks.c.push(stacks.a.pop());
+  } else if (startStack === 'b' && endStack === 'a') {
+    stacks.a.push(stacks.b.pop());
+  } else if (startStack === 'b' && endStack === 'c') {
+    stacks.c.push(stacks.b.pop());
+  } else if (startStack === 'c' && endStack === 'a') {
+    stacks.a.push(stacks.c.pop());
+  } else if (startStack === 'c' && endStack === 'b') {
+    stacks.b.push(stacks.c.pop());
+  } else {
+    console.log('Invalid Entry - Please Input a, b, or c')
   }
   isLegal();
   checkForWin();
