@@ -43,6 +43,7 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   //startStack is beginning stack moving from, endStack is ending location
   //assign a, b, c moves
+  isLegal();
   if (startStack === 'a' && endStack === 'b') {
     stacks.b.push(stacks.a.pop());
   } else if (startStack === 'a' && endStack === 'c') {
@@ -58,7 +59,6 @@ function towersOfHanoi(startStack, endStack) {
   } else {
     console.log('Invalid Entry - Please Input a, b, or c')
   }
-  isLegal();
   checkForWin();
 }
 
