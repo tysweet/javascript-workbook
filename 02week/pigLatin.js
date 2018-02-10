@@ -12,20 +12,36 @@ function pigLatin(input) {
   let vowIndex = -1;
   const word = input.split('');
 
-  if (input.indexOf('a') === 0 ||
-      input.indexOf('e') === 0 ||
-      input.indexOf('i') === 0 ||
-      input.indexOf('o') === 0 ||
-      input.indexOf('u') === 0) {
+  if (input.toLowerCase().indexOf('a') === 0 ||
+      input.toLowerCase().indexOf('e') === 0 ||
+      input.toLowerCase().indexOf('i') === 0 ||
+      input.toLowerCase().indexOf('o') === 0 ||
+      input.toLowerCase().indexOf('u') === 0) {
     return input + 'yay';
   } else {
     console.log(`line 22 ${word}`);
     const arrVowels = ['a', 'e', 'i', 'o', 'u'];
 
     arrVowels.forEach((vowel) => {
-      if(word.includes(vowel)){
-        vowIndex = word.indexOf(vowel);
+      if (word.includes('a')){
+        vowIndex = word.indexOf('a');
         console.log('line 27 ', vowIndex);
+      }
+      if (word.includes('e')){
+        vowIndex = word.indexOf('e');
+        console.log('line 30 ', vowIndex);
+      }
+      if (word.includes('i')){
+        vowIndex = word.indexOf('i');
+        console.log('line 33 ', vowIndex);
+      }
+      if (word.includes('o')){
+        vowIndex = word.indexOf('o');
+        console.log('line 36 ', vowIndex);
+      }
+      if (word.includes('u')){
+        vowIndex = word.indexOf('u');
+        console.log('line 39 ', vowIndex);
       } else {
         console.log(`no ${vowel} in the word`);
       }
@@ -33,37 +49,13 @@ function pigLatin(input) {
 
   }
 
-
-  // if (word.indexOf('a') > -1) {
-  //   vowIndex = word.indexOf('a');
-  //   return console.log("line 22" + vowIndex);
-  // }
-  // if (word.indexOf('e') > -1 || word.indexOf('e') < vowIndex) {
-  //   vowIndex = word.indexOf('e');
-  //   console.log("line 26" + vowIndex);
-  // }
-  // if (word.indexOf('i') > -1 || word.indexOf('i') < vowIndex) {
-  //   vowIndex = word.indexOf('i');
-  //   console.log("line 30" + vowIndex);
-  // }
-  // if (word.indexOf('o') > -1 || word.indexOf('o') < vowIndex) {
-  //   vowIndex = word.indexOf('o');
-  //   console.log("line 34" + vowIndex);
-  // }
-  // if (word.indexOf('u') > -1 || word.indexOf('u') < vowIndex) {
-  //   vowIndex = word.indexOf('u');
-  //   console.log("line 39" +  vowIndex);
-  // } else {
-  //   return 'Input invalid Entry line 40';
-  // }
-
-  // let firstPartOfWord = ''
-  // let secondPartOfWord = ''
-  // if (vowIndex > 0) {
-  //   firstPartOfWord = word.slice(vowIndex);
-  //   secondPartOfWord = word.substring(0, (vowIndex));
-  //   return firstPartOfWord + secondPartOfWord + 'ay';
-  // }
+  let firstPartOfWord = ''
+  let secondPartOfWord = ''
+  if (vowIndex > -1) {
+    firstPartOfWord = input.toLowerCase().slice(vowIndex);
+    secondPartOfWord = input.toLowerCase().substring(0, (vowIndex));
+    return firstPartOfWord + secondPartOfWord + 'ay';
+  }
 }
 
 
