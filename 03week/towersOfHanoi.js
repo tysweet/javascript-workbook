@@ -23,16 +23,25 @@ function printStacks() {
 function movePiece() {
   //move numbers to other stacks
   //Object.keys(?).pop(?).push(?).shift(?)
+  checkForWin();
 }
 
-function isLegal() {
+function isLegal(num) {
   //is this a legal move
   //true/false?;
+  if ((stacks.a[num] > stacks.b[num]) || (stacks.b[num] > stacks.c[num]) ||
+  (stacks.c[num] > stacks.b[num]) || (stacks.c[num] > stacks.a[num]) ||
+  (stacks.b[num] > stacks.a[num])) {
+    return 'Invalid Move - Cannot Put Larger Number on Smaller Number'
+  }
 }
 
 function checkForWin() {
   //checking for win
   //true/false?
+  if (stacks.b === [4, 3, 2, 1] || stacks.c === [4, 3, 2, 1]) {
+    return 'You Win!'
+  }
 }
 
 function towersOfHanoi(startStack, endStack) {
