@@ -23,8 +23,9 @@ function printStacks() {
 function movePiece() {
   //move numbers to other stacks
   //Object.keys(?).pop(?).push(?).shift(?)
-  checkForWin();
+
 }
+
 
 function isLegal(num) {
   //is this a legal move
@@ -47,6 +48,21 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   //startStack is beginning stack moving from, endStack is ending location
   //assign a, b, c moves
+  const movePieceFromA = stacks.a.pop([]);
+  const movePieceFromB = stacks.b.pop([]);
+  const movePieceFromC = stacks.c.pop([]);
+  if (startStack === 'a' && endStack === 'b') {
+    movePieceFromA;
+    stacks.b.splice(-1, 1, movePieceFromA);
+    console.log(stacks.b);
+    // if (endStack === 'b') {
+    //   stacks.b.push(movePieceFromA);
+    // } else if (endStack === 'c'){
+    //   stacks.c.push(movePieceFromA);
+    // }
+  }
+  isLegal();
+  checkForWin();
 }
 
 function getPrompt() {
