@@ -31,10 +31,7 @@ function isLegal(startStack, endStack) {
   //is this a legal move
   //true/false?;
   if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
-    console.log("It's all good");
-    return;
-  } else {
-    console.log('Illegal Move!');
+    return true
   }
 }
 
@@ -48,7 +45,27 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   //startStack is beginning stack moving from, endStack is ending location
   //assign a, b, c moves
-  isLegal();
+
+  if(isLegal(startStack, endStack)){
+    if (startStack === 'a' && endStack === 'b') {
+      stacks.b.push(stacks.a.pop());
+    } else if (startStack === 'a' && endStack === 'c') {
+      stacks.c.push(stacks.a.pop());
+    } else if (startStack === 'b' && endStack === 'a') {
+      stacks.a.push(stacks.b.pop());
+    } else if (startStack === 'b' && endStack === 'c') {
+      stacks.c.push(stacks.b.pop());
+    } else if (startStack === 'c' && endStack === 'a') {
+      stacks.a.push(stacks.c.pop());
+    } else if (startStack === 'c' && endStack === 'b') {
+      stacks.b.push(stacks.c.pop());
+    } else {
+      console.log('Invalid Entry - Please Input a, b, or c')
+    }
+    return checkForWin();
+  }else{
+    
+  }
   // if(isLegal() === console.log('Illegal Move!')) {
   //   return;
   // console.log(stacks[endStack]);
@@ -58,22 +75,8 @@ function towersOfHanoi(startStack, endStack) {
   //   console.log('Illegal Move - Cannot put larger number on smaller number')
   //   return;
   // }
-  if (startStack === 'a' && endStack === 'b') {
-    stacks.b.push(stacks.a.pop());
-  } else if (startStack === 'a' && endStack === 'c') {
-    stacks.c.push(stacks.a.pop());
-  } else if (startStack === 'b' && endStack === 'a') {
-    stacks.a.push(stacks.b.pop());
-  } else if (startStack === 'b' && endStack === 'c') {
-    stacks.c.push(stacks.b.pop());
-  } else if (startStack === 'c' && endStack === 'a') {
-    stacks.a.push(stacks.c.pop());
-  } else if (startStack === 'c' && endStack === 'b') {
-    stacks.b.push(stacks.c.pop());
-  } else {
-    console.log('Invalid Entry - Please Input a, b, or c')
-  }
-  checkForWin();
+
+
 }
 
 function getPrompt() {
