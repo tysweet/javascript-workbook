@@ -8,9 +8,9 @@ const rl = readline.createInterface({
 });
 //multi-dimensional array
 let board = [
-  ['', '', ''],
-  ['', '', ''],
-  ['', '', '']
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
 ];
 
 let playerTurn = 'X';
@@ -26,59 +26,59 @@ function printBoard() {
 }
 
 function horizontalWin() {
-  board.forEach((outerArray) => {
-    console.log(board[board.indexOf(outerArray)].forEach((innerArray)=>{
-      console.log(board[board.indexOf(innerArray)])
-    }))
-
-    // if ((board[0][board.indexOf(playerMove)]) && (board[1][board.indexOf(playerMove)]) && (board[2][board.indexOf(playerMove)])) {
-    //   console.log('Player X Wins!');
-
-    // }
-    //console.log(board);
-  })
-
-// } else if ((board.forEach('X', [1][0])) &&
-// (board.forEach('X', [1][1])) && (board.forEach('X', [1][2]))) {
-//   return 'Player X Wins!';
-// } else if ((board.forEach('X', [2][0])) && (board.forEach('X', [2][1])) &&
-// (board.forEach('X', [2][2]))) {
-//   return 'Player X Wins!';
-// } else if ((board.forEach('O', [0][0])) && (board.forEach('O', [0][1])) &&
-// (board.forEach('O', [0][2]))) {
-//   return 'Player O Wins!'
-// } else if ((board.forEach('O', [1][0])) &&
-// (board.forEach('O', [1][1])) && (board.forEach('O', [1][2]))) {
-//   return 'Player O Wins!'
-// } else if ((board.forEach('O', [1][0])) && (board.forEach('O', [1][1])) &&
-// (board.forEach('O', [1][2]))) {
-//   return 'Player O Wins!'
+  if ((board[0][0] === 'X') && (board[0][1] === 'X') && (board[0][2] === 'X')) {
+    return true;
+  } else if ((board[1][0] === 'X') && (board[1][1] === 'X') && (board[1][2] === 'X')) {
+    return true;
+  } else if ((board[2][0] === 'X') && (board[2][1] === 'X') && (board[2][2] === 'X')) {
+    return true;
+  } else if ((board[0][0] === 'O') && (board[0][1] === 'O') && (board[0][2] === 'O')) {
+    return true;
+  } else if ((board[1][0] === 'O') && (board[1][1] === 'O') && (board[1][2] === 'O')) {
+    return true;
+  } else if ((board[2][0] === 'O') && (board[2][1] === 'O') && (board[2][2] === 'O')) {
+    return true;
+  }
 }
 
 
 function verticalWin() {
-  // Your code here
+  if ((board[0][0] === 'X') && (board[1][0] === 'X') && (board[2][0] === 'X')) {
+    return true;
+  } else if ((board[0][1] === 'X') && (board[1][1] === 'X') && (board[2][1] === 'X')) {
+    return true;
+  } else if ((board[0][2] === 'X') && (board[1][2] === 'X') && (board[2][2] === 'X')) {
+    return true;
+  } else if ((board[0][0] === 'O') && (board[1][0] === 'O') && (board[2][0] === 'O')) {
+    return true;
+  } else if ((board[0][1] === 'O') && (board[1][1] === 'O') && (board[2][1] === 'O')) {
+    return true;
+  } else if ((board[0][2] === 'O') && (board[1][2] === 'O') && (board[2][2] === 'O')) {
+    return true;
+  }
 }
 
 function diagonalWin() {
-  // if ((board.forEach('X', [0, 0])) && (board.forEach('X', [1, 1])) &&
-  // (board.forEach('X', [2, 2])) || (board.forEach('X', [0, 2])) &&
-  // (board.forEach('X', [1, 1])) && (board.forEach('X', [2, 0]))) {
-  //   return 'Player X Wins!';
-  // } else if ((board.forEach('O', [0, 0])) && (board.forEach('O', [1, 1])) &&
-  // (board.forEach('O', [2, 2])) || (board.forEach('O', [0, 2])) &&
-  // (board.forEach('O', [1, 1])) && (board.forEach('O', [2, 0]))) {
-  //   return 'Player O Wins!'
-  // }
+  if ((board[0][0] === 'X') && (board[1][1] === 'X') && (board[2][2] === 'X')) {
+    return true;
+  } else if ((board[0][2] === 'X') && (board[1][1] === 'X') && (board[2][0] === 'X')) {
+    return true;
+  } else if ((board[0][0] === 'O') && (board[1][1] === 'O') && (board[2][2] === 'O')) {
+    return true;
+  } else if ((board[0][2] === 'O') && (board[1][1] === 'O') && (board[2][2] === 'O')) {
+    return true;
+  }
 }
 
 function checkForWin() {
   horizontalWin();
+  verticalWin();
+  diagonalWin();
+  return true;
 }
 
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
-  //ternary operator
   if (playerTurn === 'X') {
     (playerTurn = 'O');
   } else {
