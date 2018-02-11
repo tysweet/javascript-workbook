@@ -27,20 +27,14 @@ function movePiece() {
 }
 
 
-function isLegal() {
+function isLegal(startStack, endStack) {
   //is this a legal move
   //true/false?;
-  if ((stacks.a === 0) || (stacks.b === 0) ||
-    (stacks.c === 0)) {
-    console.log("It's all good")
-  } else if ((stacks.a.slice(-1) > stacks.b.slice(-1)) ||
-    (stacks.a.slice(-1) > stacks.c.slice(-1)) ||
-    (stacks.b.slice(-1) > stacks.c.slice(-1)) ||
-    (stacks.b.slice(-1) > stacks.a.slice(-1)) ||
-    (stacks.c.slice(-1) > stacks.b.slice(-1)) ||
-    (stacks.c.slice(-1) > stacks.a.slice(-1))) {
-    console.log('Invalid Move - Larger Number Cannot Move Over Smaller Number');
-    return getPrompt();
+  if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
+    console.log("It's all good");
+  } else {
+    console.log('Illegal Move!');
+    return;
   }
 }
 
@@ -54,8 +48,16 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   //startStack is beginning stack moving from, endStack is ending location
   //assign a, b, c moves
-  if (isLegal() === false) {
+  isLegal();
+  if(isLegal() === console.log('Illegal Move!')) {
     return;
+  // console.log(stacks[endStack]);
+  // if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
+  //   console.log("It's all good");
+  // } else {
+  //   console.log('Illegal Move!')
+  //   return;
+  // }
   } else if (startStack === 'a' && endStack === 'b') {
     stacks.b.push(stacks.a.pop());
   } else if (startStack === 'a' && endStack === 'c') {
