@@ -30,12 +30,12 @@ function movePiece() {
 function isLegal(startStack, endStack) {
   //is this a legal move
   //true/false?;
-  // if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
-  //   console.log("It's all good");
-  //   return;
-  // } else {
-  //   console.log('Illegal Move!');
-  // }
+  if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
+    console.log("It's all good");
+    return;
+  } else {
+    console.log('Illegal Move!');
+  }
 }
 
 function checkForWin() {
@@ -48,16 +48,16 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) {
   //startStack is beginning stack moving from, endStack is ending location
   //assign a, b, c moves
-
+  isLegal();
   // if(isLegal() === console.log('Illegal Move!')) {
   //   return;
   // console.log(stacks[endStack]);
-  if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
-    console.log('Great Move!');
-  } else {
-    console.log('Illegal Move - Cannot put larger number on smaller number')
-    return;
-  }
+  // if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
+  //   console.log('Great Move!');
+  // } else {
+  //   console.log('Illegal Move - Cannot put larger number on smaller number')
+  //   return;
+  // }
   if (startStack === 'a' && endStack === 'b') {
     stacks.b.push(stacks.a.pop());
   } else if (startStack === 'a' && endStack === 'c') {
@@ -73,7 +73,6 @@ function towersOfHanoi(startStack, endStack) {
   } else {
     console.log('Invalid Entry - Please Input a, b, or c')
   }
-  isLegal();
   checkForWin();
 }
 
@@ -81,6 +80,7 @@ function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
+      isLegal(startStack, endStack);
       towersOfHanoi(startStack, endStack);
       getPrompt();
     });
