@@ -11,7 +11,6 @@ const rl = readline.createInterface({
 function pigLatin(input) {
   let vowIndex = -1;
   const word = input.split('');
-
   if (input.toLowerCase().indexOf('a') === 0 ||
       input.toLowerCase().indexOf('e') === 0 ||
       input.toLowerCase().indexOf('i') === 0 ||
@@ -19,42 +18,21 @@ function pigLatin(input) {
       input.toLowerCase().indexOf('u') === 0) {
     return input + 'yay';
   } else {
-    console.log(`line 22 ${word}`);
     const arrVowels = ['a', 'e', 'i', 'o', 'u'];
+    for(let i =0; i < word.length -1 ;i++){
+      if(arrVowels.indexOf(word[i]) !== -1){
+        vowIndex = i;
+        break
+      }
+    }
 
-    arrVowels.forEach((vowel) => {
-      if (word.includes('a')){
-        vowIndex = word.indexOf('a');
-        console.log('line 27 ', vowIndex);
-      }
-      if (word.includes('e')){
-        vowIndex = word.indexOf('e');
-        console.log('line 30 ', vowIndex);
-      }
-      if (word.includes('i')){
-        vowIndex = word.indexOf('i');
-        console.log('line 33 ', vowIndex);
-      }
-      if (word.includes('o')){
-        vowIndex = word.indexOf('o');
-        console.log('line 36 ', vowIndex);
-      }
-      if (word.includes('u')){
-        vowIndex = word.indexOf('u');
-        console.log('line 39 ', vowIndex);
-      } else {
-        console.log(`no ${vowel} in the word`);
-      }
-    });
-
-  }
-
-  let firstPartOfWord = ''
-  let secondPartOfWord = ''
-  if (vowIndex > -1) {
-    firstPartOfWord = input.toLowerCase().slice(vowIndex);
-    secondPartOfWord = input.toLowerCase().substring(0, (vowIndex));
-    return firstPartOfWord + secondPartOfWord + 'ay';
+    let firstPartOfWord = ''
+    let secondPartOfWord = ''
+    if (vowIndex > -1) {
+      firstPartOfWord = input.toLowerCase().slice(vowIndex);
+      secondPartOfWord = input.toLowerCase().substring(0, (vowIndex));
+      return firstPartOfWord + secondPartOfWord + 'ay';
+    }
   }
 }
 
