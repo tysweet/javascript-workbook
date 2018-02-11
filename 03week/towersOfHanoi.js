@@ -30,35 +30,35 @@ function movePiece() {
 function isLegal(startStack, endStack) {
   //is this a legal move
   //true/false?;
-  if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
-    console.log("It's all good");
-  } else {
-    console.log('Illegal Move!');
-    return;
-  }
+  // if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
+  //   console.log("It's all good");
+  //   return;
+  // } else {
+  //   console.log('Illegal Move!');
+  // }
 }
 
 function checkForWin() {
   //checking for win
   if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
-    console.log('You Win!');
+    console.log('You Win!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
   }
 }
 
 function towersOfHanoi(startStack, endStack) {
   //startStack is beginning stack moving from, endStack is ending location
   //assign a, b, c moves
-  isLegal();
-  if(isLegal() === console.log('Illegal Move!')) {
-    return;
-  // console.log(stacks[endStack]);
-  // if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
-  //   console.log("It's all good");
-  // } else {
-  //   console.log('Illegal Move!')
+
+  // if(isLegal() === console.log('Illegal Move!')) {
   //   return;
-  // }
-  } else if (startStack === 'a' && endStack === 'b') {
+  // console.log(stacks[endStack]);
+  if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
+    console.log('Great Move!');
+  } else {
+    console.log('Illegal Move - Cannot put larger number on smaller number')
+    return;
+  }
+  if (startStack === 'a' && endStack === 'b') {
     stacks.b.push(stacks.a.pop());
   } else if (startStack === 'a' && endStack === 'c') {
     stacks.c.push(stacks.a.pop());
@@ -73,6 +73,7 @@ function towersOfHanoi(startStack, endStack) {
   } else {
     console.log('Invalid Entry - Please Input a, b, or c')
   }
+  isLegal();
   checkForWin();
 }
 
