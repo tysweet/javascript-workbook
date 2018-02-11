@@ -41,7 +41,7 @@ function isLegal(startStack, endStack) {
 function checkForWin() {
   //checking for win
   if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
-    console.log('You Win!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+    console.log('You Win!!!!!!!!');
   }
 }
 
