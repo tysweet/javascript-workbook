@@ -80,7 +80,7 @@ function getPrompt() {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
-      isLegal(startStack, endStack);
+      // isLegal(startStack, endStack);
       towersOfHanoi(startStack, endStack);
       getPrompt();
     });
