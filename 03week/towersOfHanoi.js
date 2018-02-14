@@ -58,6 +58,11 @@ function checkForWin() {
   //checking for win
   if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
     console.log('You Win!!!!!!!!');
+    stacks = {
+      a: [4, 3, 2, 1],
+      b: [],
+      c: []
+    };
     return true;
   } else {
     return false;
