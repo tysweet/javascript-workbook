@@ -7,6 +7,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//whiteboard for game at bottom of tests
+
 //main object of game
 let stacks = {
   a: [4, 3, 2, 1],
@@ -136,3 +138,27 @@ if (typeof describe === 'function') {
   getPrompt();
 
 }
+
+//Whiteboard for game
+
+//Objective
+// - Move stack of numbers from row A to row B or row C one at a time
+// - Cannot put larger number on top of smaller number
+// - Game is won when all numbers are in reverse order in row B or row C
+
+//User Steps
+// - User starts with array [4, 3, 2, 1] in row A, rows B & C are empty []
+// - User is prompted to enter a starting row, then a row they would like to move to
+// - Must check for legal move - cannot put larger number on smaller number
+// - If move is legal, proceed with move - if not, prompt with 'use legal move'
+// - Moves are made one at a time
+// - Show moves on game board as game progresses
+
+//Check For win
+// - If user moves all 4 numbers to rows B or C in [4, 3, 2, 1] fashion, game is won
+// - Prompt user 'You Win!'
+// - Reset game board to all numbers is row A & rows B & C empty []
+
+//Legal Moves
+// - If num you are trying to move is larger than number already present -> Illegal Move
+// - Else, it's a legal move
