@@ -10,12 +10,13 @@ const rl = readline.createInterface({
 
 function pigLatin(input) {
   let vowIndex = -1;
-  const word = input.split('');
-  if (input.toLowerCase().indexOf('a') === 0 ||
-      input.toLowerCase().indexOf('e') === 0 ||
-      input.toLowerCase().indexOf('i') === 0 ||
-      input.toLowerCase().indexOf('o') === 0 ||
-      input.toLowerCase().indexOf('u') === 0) {
+  const word = input.toLowerCase().trim().split('');
+  input = input.toLowerCase().trim()
+  if (input.indexOf('a') === 0 ||
+      input.indexOf('e') === 0 ||
+      input.indexOf('i') === 0 ||
+      input.indexOf('o') === 0 ||
+      input.indexOf('u') === 0) {
     return input + 'yay';
   } else {
     const arrVowels = ['a', 'e', 'i', 'o', 'u'];
