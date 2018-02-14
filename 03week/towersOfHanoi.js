@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 //whiteboard for game at bottom of tests
 
-//main object of game
+//main board and object of the game
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
@@ -71,7 +71,7 @@ function checkForWin() {
   }
 }
 
-//main game function, calls other functions to play
+//main game function, calls other functions to play game
 function towersOfHanoi(startStack, endStack) {
   //startStack is beginning stack moving from, endStack is ending location
   //assign a, b, c moves
@@ -97,7 +97,6 @@ function getPrompt() {
 
 
 // Tests
-
 if (typeof describe === 'function') {
 
   describe('#towersOfHanoi()', () => {
