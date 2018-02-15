@@ -1,15 +1,16 @@
 'use strict'
 
-//for loop
-//Use a for loop to console.log each item in the array carsInReverse.
+// for loop
+// Use a for loop to console.log each item in the array carsInReverse.
 const carsInReverse = ['honda', 'toyota', 'bmw','jeep', 'ford', 'tesla'];
+
 for (let i = 0; i < carsInReverse.length; i++) {
   console.log(carsInReverse[i]);
 }
 
-//for...in loop
-//Create an object (an array with keys and values) called persons with the following data:
-//firstName: "Jane"
+// for...in loop
+// Create an object (an array with keys and values) called persons with the following data:
+// firstName: "Jane"
 // lastName: "Doe"
 // birthDate: "Jan 5, 1925"
 // gender: "female"
@@ -35,6 +36,7 @@ for (let y in persons) {
 // while loop
 // Use a for loop to console.log the numbers 1 to 1000.
 let a = 0;
+
 while (a < 1000) {
   a++;
   console.log(a);
@@ -43,6 +45,7 @@ while (a < 1000) {
 // do...while loop
 // Use a do...while loop to console.log the numbers from 1 to 1000.
 let z = 0;
+
 do {
   z++;
   console.log(z);
@@ -60,10 +63,10 @@ do {
 
 // What is the difference between a for loop and a for...in loop?
 // Answer - for loops iterate while something is true until it is false, while
-//for...in loops iterate a specific variable over all of the properties of an object
+// for...in loops iterate a specific variable over all of the properties of an object
 
 
 // What is the difference between a while loop and a do...while loop?
-//Answer - Pretty identical, but a do...while loop will run at least one time since
-//the condition of the loop is listed at the bottom, and a while loop has its
-//condition listed above its statement
+// Answer - Pretty identical, but a do...while loop will run at least one time since
+// the condition of the loop is listed at the bottom, and a while loop has its
+// condition listed above its statement
