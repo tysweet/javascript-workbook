@@ -27,8 +27,9 @@ for (let x in persons) {
 }
 
 for (let y in persons) {
-  if ()
-  console.log(y);
+  if (persons[y]) {
+    console.log(persons.birthDate);
+  }
 }
 
 // while loop
