@@ -28,8 +28,8 @@ for (let x in persons) {
 }
 
 for (let y in persons) {
-  if (persons[y]) {
-    console.log(persons.birthDate);
+  if (persons['birthDate']) {
+    console.log(persons['birthDate']);
   }
 }
 
