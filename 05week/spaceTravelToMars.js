@@ -20,8 +20,8 @@ class CrewMember {
 
     const enterShip = (ship) => {
       this.ship = ship;
-      if (this.job === jobTypes.keys) {
-        console.log(jobTypes.values);
+      if (this.job === Object.keys(jobTypes)) {
+        console.log(Object.values(jobTypes));
       } else {
         console.log("Crew member cannot enter this ship.")
       }
@@ -29,16 +29,6 @@ class CrewMember {
     }
   }
 }
-
-// const enterShip = (ship) => {
-//   this.ship = ship;
-//   if (this.specialSkill === this.ship) {
-//     console.log(ship.length);
-//   } else {
-//     console.log("Can't perform a mission yet.")
-//   }
-//   ship.crew.push(this.name);
-// }
 
 class Ship {
   constructor(name, type, ability, crew) {
@@ -56,14 +46,6 @@ class Ship {
     }
   }
 }
-
-// const missionStatement = (ability) => {
-//   if (true) {
-//     console.log(this.ability);
-//   } else {
-//     console.log("Can't perform a mission yet.")
-//   }
-// }
 
 //tests
 if (typeof describe === 'function'){
