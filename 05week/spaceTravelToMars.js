@@ -12,33 +12,40 @@ let jobTypes = {
 // Your code here
 
 class CrewMember {
-  constructor(name, job, specialSkill, ship) {
+  constructor(name, job, specialSkill) {
     this.name = name;
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = null;
 
     const enterShip = (ship) => {
-      this.ship = ship;
-      if (this.job === Object.keys(jobTypes)) {
-        console.log(Object.values(jobTypes));
+      if ((this.job === Object.keys(jobTypes)[0]) || (this.job === Object.keys(jobTypes)[1])
+       || (this.job === Object.keys(jobTypes)[2])  || (this.job === Object.keys(jobTypes)[3])) {
+        return true;
       } else {
         console.log("Crew member cannot enter this ship.")
       }
+    }
+
+    const addToShip = (ship) => {
+      this.ship = ship;
+      console.log(ship, "this is our ship!");
       ship.crew.push(this.name);
     }
   }
 }
 
+let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+
 class Ship {
-  constructor(name, type, ability, crew) {
+  constructor(name, type, ability) {
     this.name = name;
     this.type = type;
     this.ability = ability;
     this.crew = [];
 
     const missionStatement = (ability) => {
-      if (true) {
+      if (this.crew.length === 1) {
         console.log(this.ability);
       } else {
         console.log("Can't perform a mission yet.")
@@ -46,6 +53,8 @@ class Ship {
     }
   }
 }
+
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
 
 //tests
 if (typeof describe === 'function'){
