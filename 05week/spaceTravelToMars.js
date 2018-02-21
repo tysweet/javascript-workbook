@@ -17,21 +17,20 @@ class CrewMember {
     this.job = job;
     this.specialSkill = specialSkill;
     this.ship = null;
-
-    const enterShip = (ship) => {
-      if ((this.job === Object.keys(jobTypes)[0]) || (this.job === Object.keys(jobTypes)[1])
-       || (this.job === Object.keys(jobTypes)[2])  || (this.job === Object.keys(jobTypes)[3])) {
-        return true;
-      } else {
-        console.log("Crew member cannot enter this ship.")
-      }
+  }
+  enterShip(ship) {
+    if ((this.job === Object.keys(jobTypes)[0]) || (this.job === Object.keys(jobTypes)[1])
+     || (this.job === Object.keys(jobTypes)[2])  || (this.job === Object.keys(jobTypes)[3])) {
+      return true;
+    } else {
+      console.log("Crew member cannot enter this ship.")
     }
+  }
 
-    const addToShip = (ship) => {
-      this.ship = ship;
-      console.log(ship, "this is our ship!");
-      ship.crew.push(this.name);
-    }
+  addToShip(ship){
+    this.ship = ship;
+    console.log(ship, "this is our ship!");
+    ship.crew.push(this.name);
   }
 }
 
@@ -43,13 +42,12 @@ class Ship {
     this.type = type;
     this.ability = ability;
     this.crew = [];
-
-    const missionStatement = (ability) => {
-      if (this.crew.length === 1) {
-        console.log(this.ability);
-      } else {
-        console.log("Can't perform a mission yet.")
-      }
+  }
+  missionStatement(ability){
+    if (this.crew.length === 1) {
+      console.log(this.ability);
+    } else {
+      console.log("Can't perform a mission yet.")
     }
   }
 }
