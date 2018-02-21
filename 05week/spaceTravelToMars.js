@@ -28,6 +28,7 @@ class CrewMember {
   }
 }
 
+
 class Ship {
   constructor(name, type, ability) {
     this.name = name;
