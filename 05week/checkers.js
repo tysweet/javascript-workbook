@@ -25,7 +25,7 @@ function Board() {
       }
     }
   };
-
+  
   // prints out the board
   this.viewGrid = function() {
     // add our column numbers
