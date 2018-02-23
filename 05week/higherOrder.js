@@ -3,7 +3,13 @@
 // Create a forEach() function that takes an array of items and a function that
 // runs the function arr.length number of times.
 
-//code here
+const myForEach = (item, index, arr) => {
+  const arrLength = (index) => {
+    for (let i = 0; i < arr.length; i++);
+    console.log(i);
+  };
+  return arrLength;
+};
 
 // Create a map() function that takes an array of items and a function that
 // returns an array with each item manipulated by that function.
