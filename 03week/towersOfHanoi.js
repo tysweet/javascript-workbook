@@ -48,27 +48,21 @@ function movePiece(startStack, endStack) {
 function isLegal(startStack, endStack) {
   //is this a legal move
   //true/false?;
-  if ((stacks[endStack].length === 0) || (stacks[endStack].slice(-1) > stacks[startStack].slice(-1))) {
-    return true;
-  } else {
-    return false;
-  }
+  return stacks[endStack].length === 0 || stacks[endStack].slice(-1) > stacks[startStack].slice(-1)
+  return true;
 }
 
 //checks to see if all numbers have been moved to stack b or c in order
 function checkForWin() {
   //checking for win
-  if ((stacks.b.length === 4) || (stacks.c.length === 4)) {
-    console.log('You Win!!!!!!!!');
-    stacks = {
-      a: [4, 3, 2, 1],
-      b: [],
-      c: []
-    };
-    return true;
-  } else {
-    return false;
-  }
+  return stacks.b.length === 4 || stacks.c.length === 4
+  console.log('You Win!!!!!!!!');
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
+  return true;
 }
 
 //main game function, calls other functions to play game
