@@ -63,46 +63,28 @@ function Board() {
   this.createGamePieces = () => {
 
     const redPiece = [
-      [0, 0],
-      [0, 2],
-      [0, 4],
-      [0, 6],
-      [1, 1],
-      [1, 3],
-      [1, 5],
-      [1, 7],
-      [2, 0],
-      [2, 2],
-      [2, 4],
-      [2, 6]
+      [0, 0], [0, 2], [0, 4], [0, 6],
+      [1, 1], [1, 3], [1, 5], [1, 7],
+      [2, 0], [2, 2], [2, 4], [2, 6]
     ]
     for (let i = 0; i < 12; i++) {
       let redRow = redPiece[i][0];
       let redColumn = redPiece[i][1];
       let redChecker = new Checker('red');
-      this.checkers.push(redChecker);
+      this.checker.push(redChecker);
       this.grid[redRow][redColumn] = redChecker;
     }
 
     const blackPiece = [
-      [5, 1],
-      [5, 3],
-      [5, 5],
-      [5, 7],
-      [6, 0],
-      [6, 2],
-      [6, 4],
-      [6, 6],
-      [7, 1],
-      [7, 3],
-      [7, 5],
-      [7, 7]
+      [5, 1], [5, 3], [5, 5], [5, 7],
+      [6, 0], [6, 2], [6, 4], [6, 6],
+      [7, 1], [7, 3], [7, 5], [7, 7]
     ]
     for (let i = 0; i < 12; i++) {
       let blackRow = blackPiece[i][0];
       let blackColumn = blackPiece[i][1];
       let blackChecker = new Checker('black');
-      this.checkers.push(blackChecker);
+      this.checker.push(blackChecker);
       this.grid[blackRow][blackColumn] = blackChecker;
     }
   }
@@ -115,11 +97,25 @@ function Game() {
     // Your code here
     this.board.createGamePieces();
   };
-  this.moveGamePieces = (start, finish) => {
+  this.moveChecker = (start, finish) => {
     const startRow = parseInt(start.charAt(0));
     const startColumn = parseInt(start.charAt(1));
     const finishRow = parseInt(finish.charAt(0));
     const finishColumn = parseInt(finish.charAt(1));
+    if (isAValidInput(start, finish) &&
+    isALegalMove(start, finish) &&
+    this.board.grid[finishRow][finishColumn] === null) {
+      this.board.grid[finishRow][finishColumn] = this.board.grid[startRow][startColumn];
+      this.board.grid[startRow][startColumn] = null;
+      if (Math.abs(finishRow - startRow) === 2) {
+        let jumpedRow = finishRow - startRow > 0 ? startRow + 1 : finishRow + 1;
+        let jumpedColumn = finishColumn - startColumn > 0 ? startColumn + 1 : finishColumn + 1;
+        this.board.grid[jumpedRow][jumpedColumn] = null;
+        this.board.checker.pop();
+      }
+    } else {
+      console.log('Invalid Move - Please attempt a different move');
+    }
   }
 }
 
