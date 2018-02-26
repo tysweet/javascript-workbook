@@ -8,25 +8,28 @@ const rl = readline.createInterface({
 });
 
 
-function Checker(symbol) {
+function Checker(symbol, name) {
   this.symbol = symbol;
-  if (symbol === 'red') {
-    this.symbol = 'r';
-  } else {
-    this.symbol = 'b';
-  }
+  this.name = name
 }
 
-const black = new Checker('b');
-const red = new Checker('r');
-// const turn = () => {
-//   if (playerTurn === 'r') {
-//     this.symbol = 'b';
+const black = new Checker('b', 'black');
+const red = new Checker('r', 'red');
+let turn = 'red';
+// if (turn === 'red') {
+//   (turn = 'b');
+// } else {
+//   (turn = 'r');
+// }
+// function ticTacToe(row, column) {
+//   checkForWin();
+//   board[row][column] = playerTurn;
+//   if (playerTurn === 'X') {
+//     (playerTurn = 'O');
 //   } else {
-//     this.symbol = 'r';
+//     (playerTurn = 'X');
 //   }
-// };
-
+// }
 
 function Board() {
   this.checkers = [];
@@ -108,6 +111,12 @@ const isAValidInput = (start, finish) => {
   (startColumn >= 0 && startColumn < 8);
   let finishIsValid = (finishRow >= 0 && finishRow < 8) &&
   (finishColumn >= 0 && finishColumn < 8);
+  finishIsValid = turn;
+  if (turn === 'red') {
+    (turn = 'black');
+  } else {
+    (turn = 'red');
+  };
   return (startIsValid && finishIsValid);
 }
 
