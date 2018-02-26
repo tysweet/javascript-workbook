@@ -8,7 +8,7 @@ const rl = readline.createInterface({
 });
 
 
-function Checker(symbol, name) {
+function Checker(symbol) {
   this.symbol = symbol;
   if (symbol === 'red') {
     this.symbol = 'r';
@@ -17,8 +17,16 @@ function Checker(symbol, name) {
   }
 }
 
-const black = new Checker('b', 'black');
-const red = new Checker('r', 'red');
+const black = new Checker('b');
+const red = new Checker('r');
+// const turn = () => {
+//   if (playerTurn === 'r') {
+//     this.symbol = 'b';
+//   } else {
+//     this.symbol = 'r';
+//   }
+// };
+
 
 function Board() {
   this.checkers = [];
@@ -122,15 +130,15 @@ function Game() {
   this.moveChecker = (start, finish) => {
     if (isAValidInput(start, finish) && isALegalMove(start, finish)) {
       const startRow = parseInt(start.charAt(0));
-      console.log(startRow);
       const startColumn = parseInt(start.charAt(1));
       const finishRow = parseInt(finish.charAt(0));
       const finishColumn = parseInt(finish.charAt(1));
       this.board.grid[finishRow][finishColumn] = this.board.grid[startRow][startColumn];
       this.board.grid[startRow][startColumn] = null;
       if (Math.abs(finishRow - startRow) === 2) {
-        let jumpedRow = finishRow - startRow > 1 ? startRow + 1 : finishRow + 1;
-        let jumpedColumn = finishColumn - startColumn > 1 ? startColumn + 1 : finishColumn + 1;
+        console.log(Math.abs(finishRow - startRow));
+        let jumpedRow = finishRow - startRow > 0 ? startRow + 1 : finishRow + 1;
+        let jumpedColumn = finishColumn - startColumn > 0 ? startColumn + 1 : finishColumn + 1;
         this.board.grid[jumpedRow][jumpedColumn] = null;
         this.board.checkers.pop();
       }
@@ -139,6 +147,10 @@ function Game() {
     }
   }
 }
+
+// const checkForWin = () => {
+//
+// }
 
 function getPrompt() {
   game.board.viewGrid();
