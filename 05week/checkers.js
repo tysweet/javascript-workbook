@@ -15,11 +15,11 @@ function Checker(symbol, name) {
 
 const black = new Checker('b', 'black');
 const red = new Checker('r', 'red');
-let turn = 'red';
-// if (turn === 'red') {
-//   (turn = 'b');
+let turn = red;
+// if (turn === red) {
+//   (turn = black);
 // } else {
-//   (turn = 'r');
+//   (turn = red);
 // }
 // function ticTacToe(row, column) {
 //   checkForWin();
@@ -30,6 +30,8 @@ let turn = 'red';
 //     (playerTurn = 'X');
 //   }
 // }
+
+// console.log(black);
 
 function Board() {
   this.checkers = [];
@@ -75,27 +77,27 @@ function Board() {
   this.createGamePieces = () => {
 
     const redPieces = [
-      [0, 0], [0, 2], [0, 4], [0, 6],
-      [1, 1], [1, 3], [1, 5], [1, 7],
-      [2, 0], [2, 2], [2, 4], [2, 6]
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
     ]
     for (let i = 0; i < 12; i++) {
       let redRow = redPieces[i][0];
       let redColumn = redPieces[i][1];
-      let redChecker = new Checker('red');
+      let redChecker = red;
       this.checkers.push(redChecker);
       this.grid[redRow][redColumn] = redChecker;
     }
 
     const blackPieces = [
-      [5, 1], [5, 3], [5, 5], [5, 7],
-      [6, 0], [6, 2], [6, 4], [6, 6],
-      [7, 1], [7, 3], [7, 5], [7, 7]
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
     ]
     for (let i = 0; i < 12; i++) {
       let blackRow = blackPieces[i][0];
       let blackColumn = blackPieces[i][1];
-      let blackChecker = new Checker('black');
+      let blackChecker = black;
       this.checkers.push(blackChecker);
       this.grid[blackRow][blackColumn] = blackChecker;
     }
@@ -111,12 +113,6 @@ const isAValidInput = (start, finish) => {
   (startColumn >= 0 && startColumn < 8);
   let finishIsValid = (finishRow >= 0 && finishRow < 8) &&
   (finishColumn >= 0 && finishColumn < 8);
-  finishIsValid = turn;
-  if (turn === 'red') {
-    (turn = 'black');
-  } else {
-    (turn = 'red');
-  };
   return (startIsValid && finishIsValid);
 }
 
@@ -126,7 +122,7 @@ const isALegalMove = (start, finish) => {
   const finishRow = parseInt(finish.charAt(0));
   const finishColumn = parseInt(finish.charAt(1));
   let goodRowValue = (Math.abs(finishRow - startRow) <= 2);
-  let goodColumnValue = (Math.abs(finishColumn - startColumn) === 1);
+  let goodColumnValue = (Math.abs(finishColumn - startColumn) <= 2);
   return (goodRowValue && goodColumnValue);
 }
 
@@ -145,7 +141,6 @@ function Game() {
       this.board.grid[finishRow][finishColumn] = this.board.grid[startRow][startColumn];
       this.board.grid[startRow][startColumn] = null;
       if (Math.abs(finishRow - startRow) === 2) {
-        console.log(Math.abs(finishRow - startRow));
         let jumpedRow = finishRow - startRow > 0 ? startRow + 1 : finishRow + 1;
         let jumpedColumn = finishColumn - startColumn > 0 ? startColumn + 1 : finishColumn + 1;
         this.board.grid[jumpedRow][jumpedColumn] = null;
@@ -155,11 +150,13 @@ function Game() {
       console.log('Invalid Move - Please try a different move');
     }
   }
+  // checkForWin();
 }
 
 // const checkForWin = () => {
-//
+//   console.log(Game.board.grid[0][0]);
 // }
+// checkForWin();
 
 function getPrompt() {
   game.board.viewGrid();
