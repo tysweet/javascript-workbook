@@ -75,7 +75,6 @@ function Board() {
   };
 
   this.createGamePieces = () => {
-
     const redPieces = [
       [0, 1], [0, 3], [0, 5], [0, 7],
       [1, 0], [1, 2], [1, 4], [1, 6],
@@ -88,7 +87,6 @@ function Board() {
       this.checkers.push(redChecker);
       this.grid[redRow][redColumn] = redChecker;
     }
-
     const blackPieces = [
       [5, 0], [5, 2], [5, 4], [5, 6],
       [6, 1], [6, 3], [6, 5], [6, 7],
