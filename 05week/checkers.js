@@ -16,11 +16,7 @@ function Checker(symbol, name) {
 const black = new Checker('b', 'black');
 const red = new Checker('r', 'red');
 let turn = red;
-// if (turn === red) {
-//   (turn = black);
-// } else {
-//   (turn = red);
-// }
+
 // function ticTacToe(row, column) {
 //   checkForWin();
 //   board[row][column] = playerTurn;
@@ -152,7 +148,7 @@ function Game() {
 }
 
 // const checkForWin = () => {
-//   console.log(Game.board.grid[0][0]);
+//   console.log(Game.board.checkers);
 // }
 // checkForWin();
 
