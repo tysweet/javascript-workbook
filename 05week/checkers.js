@@ -17,18 +17,6 @@ const black = new Checker('b', 'black');
 const red = new Checker('r', 'red');
 let turn = red;
 
-// function ticTacToe(row, column) {
-//   checkForWin();
-//   board[row][column] = playerTurn;
-//   if (playerTurn === 'X') {
-//     (playerTurn = 'O');
-//   } else {
-//     (playerTurn = 'X');
-//   }
-// }
-
-// console.log(black);
-
 function Board() {
   this.checkers = [];
   this.grid = [];
@@ -144,13 +132,7 @@ function Game() {
       console.log('Invalid Move - Please try a different move');
     }
   }
-  // checkForWin();
 }
-
-// const checkForWin = () => {
-//   console.log(Game.board.checkers);
-// }
-// checkForWin();
 
 function getPrompt() {
   game.board.viewGrid();
