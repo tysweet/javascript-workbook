@@ -73,12 +73,14 @@ const sumEvens = nums.filter(i => i % 2).reduce((a, b) => a + b);
 // }
 
 const numCount = {};
+nums.forEach((num) => {
+  numCount[num] = nums.filter(x => x === num).length;
+});
 
-
-console.log(numCount);
+// console.log(numCount);
 
 
 // Find the index of the first "Austin" value (the value plus its index equals 512)
-// const atxIdx =
+const atxIdx = 
 
-// console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
