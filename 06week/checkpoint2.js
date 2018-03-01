@@ -82,13 +82,13 @@ const nums = strNums.map(Number);
 
 // Find the index of the first "Austin" value (the value plus its index equals 512)
 const atxIdx = [];
-nums.filter((item, index) => {
-  if ((item + index) === 512) {
+nums.forEach((value, index) => {
+  if ((value + index) === 512) {
     // console.log(index);
     atxIdx.push(index);
   };
 });
-// console.log(atxIdx)
+console.log(atxIdx);
 console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
 
 
