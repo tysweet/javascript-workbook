@@ -62,6 +62,8 @@ const sumEvens = nums.filter(i => i % 2).reduce((a, b) => a + b);
 
 console.log(sumEvens);
 
+//1950
+
 // Return an object with counts for each number
 // {
 //   0: 0, <== increment these counts
