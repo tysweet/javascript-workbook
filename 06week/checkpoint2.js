@@ -55,14 +55,16 @@ const strNums = ["1","4","1","5","9","2","6","5","3","5","8","9","7","9","3","2"
 // Given 1000 digits of PI as strings, return an array of the digits as numbers
 const nums = strNums.map(Number);
 
-// console.log(nums);
+console.log(nums);
+
+
 
 // Find the sum of the even values
-const sumEvens = nums.filter(i => i % 2).reduce((a, b) => a + b);
+const sumEvens = nums.filter((num) => {return !(num % 2)}).reduce((a, b) => a + b);
 
 console.log(sumEvens);
 
-//1950
+
 
 // Return an object with counts for each number
 // {
@@ -83,10 +85,8 @@ console.log(numCount);
 
 
 // Find the index of the first "Austin" value (the value plus its index equals 512)
-// const atxIdx = nums.findIndex((value, index) => {
-//   return value + index === 512;
-// });
-// console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+const atxIdx = nums.findIndex((value, index) => {
+  return value + index === 512;
+});
 
-
-//
+console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
