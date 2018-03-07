@@ -16,9 +16,9 @@ class App extends Component {
 
   render() {
     return (
-      <div onClick=>
-
-      </div>
+      <input value={this.handleInputChange}>
+        {this.state.inputValue}
+      </input>
     );
   }
 }
