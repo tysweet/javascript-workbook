@@ -8,11 +8,35 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
+function pigLatin(input) {
+  let vowIndex = -1;
+  const word = input.toLowerCase().trim().split('');
+  input = input.toLowerCase().trim()
+  if (input.indexOf('a') === 0 ||
+      input.indexOf('e') === 0 ||
+      input.indexOf('i') === 0 ||
+      input.indexOf('o') === 0 ||
+      input.indexOf('u') === 0) {
+    return input + 'yay';
+  } else {
+    const arrVowels = ['a', 'e', 'i', 'o', 'u'];
+    for(let i =0; i < word.length -1 ;i++){
+      if(arrVowels.indexOf(word[i]) !== -1){
+        vowIndex = i;
+        break
+      }
+    }
 
-  // Your code here
-
+    let firstPartOfWord = ''
+    let secondPartOfWord = ''
+    if (vowIndex > -1) {
+      firstPartOfWord = input.toLowerCase().slice(vowIndex);
+      secondPartOfWord = input.toLowerCase().substring(0, (vowIndex));
+      return firstPartOfWord + secondPartOfWord + 'ay';
+    }
+  }
 }
+
 
 
 function getPrompt() {
