@@ -19,15 +19,9 @@ class CrewMember {
 
   enterShip(ship) {
     this.ship = ship
-    if ((this.job === Object.keys(jobTypes)[0]) ||
-    (this.job === Object.keys(jobTypes)[1]) ||
-    (this.job === Object.keys(jobTypes)[2]) ||
-    (this.job === Object.keys(jobTypes)[3])) {
-      ship.crew.push(this);
-    }
+    ship.crew.push(this);
   }
 }
-
 
 class Ship {
   constructor(name, type, ability) {
