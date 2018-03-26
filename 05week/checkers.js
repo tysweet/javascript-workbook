@@ -8,11 +8,17 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(symbol, name) {
+  this.symbol = symbol;
+  this.name = name
 }
 
+const black = new Checker('b', 'black');
+const red = new Checker('r', 'red');
+let turn = red;
+
 function Board() {
+  this.checkers = [];
   this.grid = [];
   // creates an 8x8 array, filled with null values
   this.createGrid = function() {
@@ -52,16 +58,80 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
+  this.createGamePieces = () => {
+    const redPieces = [
+      [0, 1], [0, 3], [0, 5], [0, 7],
+      [1, 0], [1, 2], [1, 4], [1, 6],
+      [2, 1], [2, 3], [2, 5], [2, 7]
+    ]
+    for (let i = 0; i < 12; i++) {
+      const redRow = redPieces[i][0];
+      const redColumn = redPieces[i][1];
+      const redChecker = red;
+      this.checkers.push(redChecker);
+      this.grid[redRow][redColumn] = redChecker;
+    }
+    const blackPieces = [
+      [5, 0], [5, 2], [5, 4], [5, 6],
+      [6, 1], [6, 3], [6, 5], [6, 7],
+      [7, 0], [7, 2], [7, 4], [7, 6]
+    ]
+    for (let i = 0; i < 12; i++) {
+      const blackRow = blackPieces[i][0];
+      const blackColumn = blackPieces[i][1];
+      const blackChecker = black;
+      this.checkers.push(blackChecker);
+      this.grid[blackRow][blackColumn] = blackChecker;
+    }
+  }
 }
+
+const isAValidInput = (start, finish) => {
+  const startRow = parseInt(start.charAt(0));
+  const startColumn = parseInt(start.charAt(1));
+  const finishRow = parseInt(finish.charAt(0));
+  const finishColumn = parseInt(finish.charAt(1));
+  const startIsValid = startRow >= 0 && startRow < 8 &&
+  startColumn >= 0 && startColumn < 8;
+  const finishIsValid = finishRow >= 0 && finishRow < 8 &&
+  finishColumn >= 0 && finishColumn < 8;
+  return startIsValid && finishIsValid;
+}
+
+const isALegalMove = (start, finish) => {
+  const startRow = parseInt(start.charAt(0));
+  const startColumn = parseInt(start.charAt(1));
+  const finishRow = parseInt(finish.charAt(0));
+  const finishColumn = parseInt(finish.charAt(1));
+  const goodRowValue = (Math.abs(finishRow - startRow) <= 2);
+  const goodColumnValue = (Math.abs(finishColumn - startColumn) <= 2);
+  return (goodRowValue && goodColumnValue);
+}
+
 function Game() {
-
   this.board = new Board();
-
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.createGamePieces();
   };
+  this.moveChecker = (start, finish) => {
+    if (isAValidInput(start, finish) && isALegalMove(start, finish)) {
+      const startRow = parseInt(start.charAt(0));
+      const startColumn = parseInt(start.charAt(1));
+      const finishRow = parseInt(finish.charAt(0));
+      const finishColumn = parseInt(finish.charAt(1));
+      this.board.grid[finishRow][finishColumn] = this.board.grid[startRow][startColumn];
+      this.board.grid[startRow][startColumn] = null;
+      if (Math.abs(finishRow - startRow) === 2) {
+        const jumpedRow = finishRow - startRow > 0 ? startRow + 1 : finishRow + 1;
+        const jumpedColumn = finishColumn - startColumn > 0 ? startColumn + 1 : finishColumn + 1;
+        this.board.grid[jumpedRow][jumpedColumn] = null;
+        this.board.checkers.pop();
+      }
+    } else {
+      console.log('Invalid Move - Please try a different move');
+    }
+  }
 }
 
 function getPrompt() {
