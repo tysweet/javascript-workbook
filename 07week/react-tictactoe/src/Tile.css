@@ -1,14 +1,15 @@
 .tile {
-  width: 30%;
-  height: 150px;
-  font-size: 60px;
-  background: yellow;
-  color: black;
-  border: 8px solid red;
-  display: inline-block;
+  width: 31.5%;
+  height: 220px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 150px;
+  background: black;
+  color: yellow;
+  border: 8px solid white;
+  display: block;
   float: left;
   text-align: center;
-  line-height: 150px;
+  line-height: 240px;
 }
 
 p {

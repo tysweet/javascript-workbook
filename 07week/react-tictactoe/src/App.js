@@ -83,7 +83,7 @@ class App extends Component {
         ' ', ' ', ' ',
         ' ', ' ', ' '
       ],
-      turn: 'X',
+      playerTurn: 'X',
       winner: null
     });
   }
@@ -92,9 +92,9 @@ class App extends Component {
     return (
       <div className = "container">
         <div className = "menu">
+          <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"/>
           <h1>Tic-Tac-Toe</h1>
           <Announcement winner = {this.state.winner}/>
-          <ResetButton reset = {this.resetBoard.bind(this)}/>
         </div>
         {this.state.board.map(function(value, index) {
           return(
@@ -106,6 +106,7 @@ class App extends Component {
               playerTurn = {this.state.playerTurn}/>
           );
         }.bind(this))}
+        <ResetButton reset = {this.resetBoard.bind(this)}/>
       </div>
     );
   }

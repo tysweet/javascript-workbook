@@ -1,18 +1,26 @@
-button {
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  width: 100px;
-  height: 20px;
-  font-style: bold;
-}
-
 .container {
-  width: 950px;
-  margin: auto;
+  width: auto;
 }
 
 .menu {
   text-align: center;
-  width: 90%
+  width: auto;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 40px;
+}
+
+button {
+  display: flex;
+  align-self: center;
+  margin: 0 auto;
+  width: auto;
+  height: 60px;
+  background-color: red;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+  text-align: center;
 }
