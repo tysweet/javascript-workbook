@@ -1,69 +1,114 @@
-import React from 'react';
-// import Board from './Board.js';
-// import BoardRow from './boardRow.js';
-// import Box from 'Box.js';
-// import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+// import './App.css';
+// import Announcement from './Announcement';
+// import Tile from 'Tile';
+// import ResetButton from './ResetButton';
+
+class App extends Component {
+  constructor() {
+    super();
     this.state = {
       board: [
-        [[null],[null],[null]],
-        [[null],['O'],[null]],
-        [[null],[null],[null]],
+        ' ', ' ', ' ',
+        ' ', ' ', ' ',
+        ' ', ' ', ' '
       ],
-      playerTurn: true,
+      playerTurn: 'X',
+      winner: null
     };
-    console.log(this.state);
+
   }
 
-  handleClick(i) {
-    const board = this.state.board.slice();
-    board[i][i] = 'X';
-    this.setState({board: board});
-    // console.log(this);
-    // const box = this.state.board.slice();
-  //   this.setState({
-  //     box: box,
-  //   });
+  updateBoard(loc, player) {
+    if (this.state.board[loc] === 'X' || this.state.board === 'O' ||
+    this.state.winner) {
+      return;
+    }
+    const currentBoard = this.state.board;
+    currentBoard.splice (loc, 1, this.state.playerTurn);
+    this.setState({board: currentBoard});
+
+    const topRow = this.state.board[0] + this.state.board[1] + this.state.board[2];
+    if (topRow.match (/XXX|OOO/)) {
+      this.setState({winner: this.state.turn});
+      return;
+    }
+    const middleRow = this.state.board[3] + this.state.board[4] + this.state.board[5];
+    if (middleRow.match (/XXX|OOO/)) {
+      this.setState({winner: this.state.turn});
+      return;
+    }
+    const bottomRow = this.state.board[6] + this.state.board[7] + this.state.board[8];
+    if (bottomRow.match (/XXX|OOO/)) {
+      this.setState({winner: this.state.turn});
+      return;
+    }
+    const leftColumn = this.state.board[0] + this.state.board[3] + this.state.board[6];
+    if (leftColumn.match (/XXX|OOO/)) {
+      this.setState({winner: this.state.turn});
+      return;
+    }
+    const midColumn = this.state.board[1] + this.state.board[4] + this.state.board[7];
+    if (midColumn.match (/XXX|OOO/)) {
+      this.setState({winner: this.state.turn});
+      return;
+    }
+    const rightColumn = this.state.board[2] + this.state.board[5] + this.state.board[8];
+    if (rightColumn.match (/XXX|OOO/)) {
+      this.setState({winner: this.state.turn});
+      return;
+    }
+    const topLeftDiagonal = this.state.board[0] + this.state.board[4] + this.state.board[8];
+    if (topLeftDiagonal.match (/XXX|OOO/)) {
+      this.setState({winner: this.state.turn});
+      return;
+    }
+    const topRightDiagonal = this.state.board[2] + this.state.board[4] + this.state.board[6];
+    if (topRightDiagonal.match (/XXX|OOO/)) {
+      this.setState({winner: this.state.turn});
+      return;
+    }
+    const moves = this.state.board.join('').replace(/ /g, '');
+    if (moves.length === 9) {
+      alert('Game is a draw - Reset the board');
+    }
+    this.setState({turn: (this.state.turn === 'X') ? 'O' : 'X'});
+  }
+
+  resetBoard(){
+    this.setState({
+      board: [
+        ' ', ' ', ' ',
+        ' ', ' ', ' ',
+        ' ', ' ', ' '
+      ],
+      turn: 'X',
+      winner: null
+    });
   }
 
   render() {
-    // const status = 'Next player: ' + (this.state.playerTurn ? 'X' : 'O');
-    const rowStyle = {
-      backgroundColor: 'yellow',
-      color: 'red',
-      height: '120px',
-      fontSize: '40px',
-      margin: '5px auto',
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center'
-    };
-    const boxStyle = {
-      height: '110px',
-      width: '110px',
-      backgroundColor: 'lightgrey',
-      margin: 'auto 20px',
-      border: '1px solid black'
-    };
-
     return (
-      <div>
-        {this.state.board.map((row, index) => {
-          return <div key={index} style={rowStyle}>{row.map((box, index) => {
-            return <div key={index} style={boxStyle}>
-              <button onClick={this.handleClick}></button>
-            </div>;
-          })}</div>;
-        })}
+      <div className = "container">
+        <div className = "menu">
+          <h1>Tic-Tac-Toe</h1>
+          <Announcement winner = {this.state.winner}/>
+          <ResetButton reset = {this.resetBoard.bind(this)}/>
+        </div>
+        {this.state.board.map(function(value, index) {
+          return(
+            <Tile
+              key = {index}
+              loc = {index}
+              value = {value}
+              updateBoard = {this.updateBoard.bind(this)}
+              turn = {this.state.turn}/>
+          );
+        }.bind(this))}
       </div>
     );
   }
 }
-
-
 
 export default App;
