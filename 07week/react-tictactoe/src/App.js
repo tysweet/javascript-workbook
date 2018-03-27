@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-// import './App.css';
-// import Announcement from './Announcement';
-// import Tile from 'Tile';
-// import ResetButton from './ResetButton';
+import './App.css';
+import Announcement from './Announcement';
+import Tile from 'Tile';
+import ResetButton from './ResetButton';
 
 class App extends Component {
   constructor() {

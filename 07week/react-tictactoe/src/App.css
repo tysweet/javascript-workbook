@@ -16,21 +16,3 @@ button {
   text-align: center;
   width: 90%
 }
-
-/* const rowStyle = {
-  backgroundColor: 'yellow',
-  color: 'red',
-  height: '120px',
-  fontSize: '40px',
-  margin: '5px auto',
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center'
-};
-const boxStyle = {
-  height: '110px',
-  width: '110px',
-  backgroundColor: 'lightgrey',
-  margin: 'auto 20px',
-  border: '1px solid black'
-}; */
