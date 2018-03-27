@@ -93,7 +93,7 @@ class App extends Component {
       <div className = "container">
         <div className = "menu">
           <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"/>
-          <h1>Tic-Tac-Toe</h1>
+          <h1>TIC - TAC - TOE</h1>
           <Announcement winner = {this.state.winner}/>
         </div>
         {this.state.board.map(function(value, index) {
