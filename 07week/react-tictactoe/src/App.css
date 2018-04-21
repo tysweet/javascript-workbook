@@ -1,0 +1,25 @@
+.container {
+  width: auto;
+}
+
+.menu {
+  text-align: center;
+  width: auto;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+button {
+  display: flex;
+  align-self: center;
+  margin: 0 auto;
+  width: auto;
+  height: 60px;
+  background-color: red;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+  text-align: center;
+}

@@ -1,0 +1,18 @@
+.tile {
+  width: 31.5%;
+  height: 220px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 150px;
+  background: black;
+  color: yellow;
+  border: 8px solid white;
+  display: block;
+  float: left;
+  text-align: center;
+  line-height: 240px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
